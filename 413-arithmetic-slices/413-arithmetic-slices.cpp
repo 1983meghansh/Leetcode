@@ -2,6 +2,7 @@ class Solution {
 public:
     int numberOfArithmeticSlices(vector<int>& nums) {
         //observe the dp table for a sample test case in the image
+        //https://www.youtube.com/watch?v=rSi4MpGEz1M
         int n=nums.size();
         if(n<3)
             return 0;
