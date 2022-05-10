@@ -2,8 +2,7 @@ class Solution {
 public:
     bool can_we_ship(vector<int>& weights,int maxdays,int capacity)
     {
-        
-        int sum=0,days=1;
+         int sum=0,days=1;
         for(int i=0;i<weights.size();i++)
         {
             if(sum+weights[i]>capacity)
@@ -20,7 +19,6 @@ public:
         else
             return false;
     }
-    
     int shipWithinDays(vector<int>& weights, int days) {
         //talk about the range of binary search
        //Think of a maximum weight ship can carry - 
@@ -30,15 +28,11 @@ public:
 //Think of a minimum weight ship can carry - 
         //This is the case if it has to carry single package everyday. 
         //So minimum weight comes out to be maximum of all elements=4.
-
-
         int low=*max_element(weights.begin(),weights.end());
-       
         int hi=0;
         for(int i=0;i<weights.size();i++)
             hi+=weights[i];   //if days=1 then 
-        //weight should be summation of all packages
-        
+        //weight should be summation of all packages 
         int ans=-1;
         while(low<=hi)
         {
@@ -56,7 +50,6 @@ public:
                 //we would need more weight
                 low=mid+1;
             }
-
         }
         return ans;
     }
