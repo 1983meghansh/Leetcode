@@ -1,7 +1,8 @@
 class Solution {
 public:
     
-    bool noofbouq(vector<int>& bloomDay, int m, int k,int limit) //returns true if no of bouquets we can make in limit days is greater than m bouquets
+    bool noofbouq(vector<int>& bloomDay, int m, int k,int limit) //returns true if no of
+        //bouquets we can make in limit days is greater than m bouquets
     {
         //check if m bouqets can be made in limit days
         int bouq=0,flowers=0;
