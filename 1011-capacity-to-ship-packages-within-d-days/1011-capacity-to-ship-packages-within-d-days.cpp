@@ -23,10 +23,17 @@ public:
     
     int shipWithinDays(vector<int>& weights, int days) {
         //talk about the range of binary search
-        //low=
+       //Think of a maximum weight ship can carry - 
+        //This is the case if it has to carry all packages in a single day.
+        //It comes out to be total of all elements=16.
+
+//Think of a minimum weight ship can carry - 
+        //This is the case if it has to carry single package everyday. 
+        //So minimum weight comes out to be maximum of all elements=4.
+
+
         int low=*max_element(weights.begin(),weights.end());
-        //if days =maximum then min no of days should be the min
-        //min package weight
+       
         int hi=0;
         for(int i=0;i<weights.size();i++)
             hi+=weights[i];   //if days=1 then 
