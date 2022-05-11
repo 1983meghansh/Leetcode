@@ -3,7 +3,7 @@ public:
     int maxDistance(vector<int>& position, int m) {
         sort(position.begin(),position.end());
         long long low=1;
-        long long hi=1e9+7;
+        long long hi=*max_element(position.begin(),position.end());
         int ans=0;
         
         while(low<=hi)
