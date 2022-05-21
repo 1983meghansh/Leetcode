@@ -2,7 +2,7 @@ class Solution {
 public:
     int f(int ind,int buy,vector<int>&prices,int n,vector<vector<int>>&dp,int fee)
     {
-        
+        //similar to stock2
         if(ind>=n)
             return 0;
         if(dp[ind][buy]!=-1)
