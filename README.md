@@ -1,2 +1,2 @@
 # Leetcode
-This repository contains popular Leetcode questions along with its optimised code solutions.
+This repository contains popular Leetcode questions along with their optimised code solutions.
