@@ -23,7 +23,7 @@ public:
                 }
             }
         }
-        if(cnt==m*n)return -1;
+        if(cnt==m*n)return -1;  //just to handle corner cases
         if(cnt==0)return -1;
         
         // right, bottom, left, top - directions in which we can move
