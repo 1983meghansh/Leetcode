@@ -7,6 +7,7 @@ public:
         int r=maze.size();
         int c=maze[0].size();
         maze[e[0]][e[1]]='+';
+        int ans=INT_MAX;
         vector<vector<int>>dir={{0,1},{1,0},{0,-1},{-1,0}};
         while(!q.empty())
         {
@@ -22,7 +23,9 @@ public:
                     if(x<0 or y<0 or x>=r or y>=c or maze[x][y]=='+')
                         continue;
                     if(x==0 or y==0 or x==r-1 or y==c-1)
-                        return moves;
+                    {
+                        ans=min(moves,ans);
+                    }
                     maze[x][y]='+';
                     q.push({x,y});
                 }
@@ -30,6 +33,9 @@ public:
             }
             moves++;
         }
+        if(ans==INT_MAX)
         return -1;
+        else
+            return ans;
     }
 };
