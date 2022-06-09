@@ -1,7 +1,7 @@
 class Solution {
 public:
     
-    void dfs(vector<int>list[],int node, vector<int>&vis)
+    void dfs(vector<vector<int>>&list,int node, vector<int>&vis)
     {
         vis[node]=1;
         for(auto it:list[node])
@@ -17,12 +17,11 @@ public:
         int m=connections.size();
         if(m<n-1)
             return -1;
-        vector<int>list[n];
+        vector<vector<int>>list(n);
         
-        for(int i=0;i<m;i++)
-        {
-            list[connections[i][0]].push_back(connections[i][1]);
-            list[connections[i][1]].push_back(connections[i][0]);
+       for(auto con : connections){
+            list[con[0]].push_back(con[1]);
+            list[con[1]].push_back(con[0]);
         }
         
         vector<int>vis(n,0);
