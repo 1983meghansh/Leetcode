@@ -1,6 +1,8 @@
 class Solution {
 public:
     int minMutation(string beginWord, string endWord, vector<string>& wordList) {
+       //same as word ladder  
+        
         if(beginWord.compare(endWord)==0)
             return 0;
         if(wordList.size()==0)
@@ -35,7 +37,7 @@ public:
                         temp[i]=c;
                         if(curr.compare(temp)==0)
                             continue;          //skip if its the same curr word
-                        if(temp.compare(endWord)==0)   //we always check if the new word formed is the 
+                        if(temp.compare(endWord)==0)   //we always check if the new word formed is the target word
                             return depth;
                         if(s.find(temp)!=s.end())
                         {
