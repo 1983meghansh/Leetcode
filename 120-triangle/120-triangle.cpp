@@ -1,19 +1,28 @@
 class Solution {
 public:
-    int f(int i,int j,int m,vector<vector<int>>& t,vector<vector<int>>&dp)
-    {
-        //base case
-        if(i==m-1)
-            return t[i][j];
-        if(dp[i][j]!=-1)
-            return dp[i][j];
-        int down= t[i][j]+f(i+1,j,m,t,dp);
-        int diag=t[i][j]+f(i+1,j+1,m,t,dp);
-        return dp[i][j]=min(down,diag);
-    }
     int minimumTotal(vector<vector<int>>& triangle) {
-        int m=triangle.size();
-        vector<vector<int>>dp(m,vector<int>(m,-1));
-        return f(0,0,m,triangle,dp);
+        int n=triangle.size();
+        
+        vector<vector<int>>ans(n,vector<int>(n,0));
+        ans[0][0]=triangle[0][0];
+        
+        for(int i=1;i<n;i++)
+        {
+            for(int j=0;j<triangle[i].size();j++)
+            {
+                if(j==0)
+                    ans[i][j]=triangle[i][j]+ans[i-1][j];
+                else if(j==triangle[i].size()-1)
+                    ans[i][j]=triangle[i][j]+ans[i-1][j-1];
+                else
+                    ans[i][j]=triangle[i][j]+min(ans[i-1][j],ans[i-1][j-1]);
+            }
+        }
+        int res=INT_MAX;
+        for(int i=0;i<n;i++) // ans is in last row
+        {
+            res=min(res,ans[n-1][i]);
+        }
+        return res;
     }
 };
