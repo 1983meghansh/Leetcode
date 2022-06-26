@@ -1,6 +1,8 @@
 class Solution {
 public:
     int maxScore(vector<int>& cp, int k) {
+        //explore all possibilities
+        //through prefix sum from start and from end
         int n=cp.size();
         vector<int>fsum(n+1,0);
         vector<int>esum(n+1,0);
