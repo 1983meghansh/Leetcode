@@ -18,10 +18,10 @@ public:
             esum[i]=sum;
         }
         int ans=0;
-         reverse(esum.begin(),esum.end());
+         // reverse(esum.begin(),esum.end());
         for(int i=0;i<=k;i++)
         {
-            ans=max(ans,fsum[i]+esum[k-i]);
+            ans=max(ans,fsum[i]+esum[n-k+i]);
         }
         return ans;
     }
