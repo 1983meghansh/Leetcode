@@ -1,16 +1,23 @@
 class Solution {
 public:
     int minDeletions(string s) {
-         vector<int> freq(26, 0);
-        for(char c: s) freq[c-'a']++;       
-        int count = 0;
-        sort(begin(freq), end(freq), greater<int>());        
-        for(int i=1; i<26; i++){
-            while(freq[i] != 0 and freq[i-1] <= freq[i]) {  
-                freq[i]--, ++count;
+        vector<int>f(26,0);
+        for(auto i:s)
+            f[i-'a']++;
+        sort(f.begin(),f.end());
+        int ans=0;
+        for(int i=24;i>=0;i--)
+        {
+            if(f[i]==0)
+                break;
+            
+            if(f[i]>=f[i+1])
+            {
+                int temp=f[i];
+                f[i]=max(0,f[i+1]-1);
+                ans+=temp-f[i];
             }
         }
-        return count;
+        return ans;
     }
-    
 };
