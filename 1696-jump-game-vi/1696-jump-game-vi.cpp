@@ -47,6 +47,7 @@ public:
         {
             if(i>k)
                 s.erase({dp[i-k-1],i-k-1});
+            //in set , elements are stored in asending sorted order by default , so rbegin is reverse iterator which points to last element in set(max element of last k)
             pair<int,int> it=*rbegin(s);
             dp[i]=it.first+nums[i];
             s.insert({dp[i],i});
