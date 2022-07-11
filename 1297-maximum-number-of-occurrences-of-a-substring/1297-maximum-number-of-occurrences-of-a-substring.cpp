@@ -1,26 +1,29 @@
 class Solution {
 public:
     int maxFreq(string s, int maxLetters, int minSize, int maxSize) {
-       int i = 0, j = 0, k = maxLetters, sz = s.size(), maxmO = 0, cnt = 0 ;
-        unordered_map<char, int> umap ; unordered_map<string, int> umap_2 ;
+        int res=0;
+        unordered_map<char,int>m1;
+        unordered_map<string ,int>m2;
         
-        while(j<sz)
+        int j=0,i=0;
+        while(j<s.size())
         {
-            umap[s[j]]++ ; 
-            
-            while(j-i+1 > minSize || umap.size()>k)
+            m1[s[j]]++;
+             if(j-i+1>minSize or m1.size()>maxLetters)
             {
-                umap[s[i]]-- ; 
-                if(umap[s[i]] == 0){umap.erase(s[i]) ;} 
-                i++ ; 
+                m1[s[i]]--;
+                if(m1[s[i]]==0)
+                    m1.erase(s[i]);
+                i++;
             }
-            
-            if(j-i+1 == minSize && j-i+1 <= maxSize && umap.size()<=k)
+            if(j-i+1==minSize and m1.size()<=maxLetters)
             {
-                 maxmO = max(maxmO, ++umap_2[s.substr(i, minSize)]) ;
+                
+                res=max(res,++m2[s.substr(i,minSize)]);
             }
-            j++ ;
+           
+            j++;
         }
-        return maxmO ;
+        return res;
     }
 };
