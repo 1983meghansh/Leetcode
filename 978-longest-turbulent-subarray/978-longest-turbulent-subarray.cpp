@@ -1,6 +1,8 @@
 class Solution {
 public:
     int maxTurbulenceSize(vector<int>& arr) {
+        //every index has to be either a peak or valley
+        //if it is so, it falls into the subarray
         if(arr.size()<2)
             return arr.size();
         int st=0,end=0;
