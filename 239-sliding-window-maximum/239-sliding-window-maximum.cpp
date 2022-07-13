@@ -18,7 +18,7 @@ public:
             pq.push({nums[i],i});
             
             //remove the elements from pq which are not in current window
-            while(!(pq.top().second>i-k))
+            while((pq.top().second<=i-k))
             {
                 pq.pop();
             }
